@@ -1,0 +1,23 @@
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+from scipy.cluster.hierarchy import dendrogram,linkage
+
+X = np.array([
+    [1, 2],
+    [2, 3],
+    [3, 4],
+    [8, 8],
+    [9, 9],
+    [10, 10]
+])
+
+df = pd.DataFrame(X)
+print(df)
+
+linked = linkage(df,method = "ward")
+
+#Visualization 
+plt.figure(figsize = (5,4))
+dendrogram(linked)
+plt.show()
